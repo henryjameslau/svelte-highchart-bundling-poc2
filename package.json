@@ -1,0 +1,51 @@
+{
+	"name": "svelte-highchart-bundling-poc",
+	"version": "0.0.7",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build && npm run package",
+		"bundle": "vite -c vite.js.config.js build",
+		"preview": "vite preview",
+		"package": "svelte-kit sync && svelte-package && publint",
+		"prepublishOnly": "npm run package",
+		"format": "prettier --write .",
+		"lint": "prettier --check .",
+		"rollup": "rollup -c"
+	},
+	"files": [
+		"dist-js"
+	],
+	"exports": {
+		".": {
+			"import": "./dist-js/components.es.js",
+			"require": "./dist-js/components.umd.js"
+		}
+	},
+	"sideEffects": [
+		"**/*.css"
+	],
+	"type": "module",
+	"peerDependencies": {
+		"svelte": "^5.0.0"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^28.0.1",
+		"@rollup/plugin-node-resolve": "^15.3.0",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/package": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"highcharts": "^12.0.1",
+		"papaparse": "^5.4.1",
+		"prettier": "^3.3.2",
+		"prettier-plugin-svelte": "^3.2.6",
+		"publint": "^0.2.0",
+		"rollup": "^4.28.1",
+		"rollup-plugin-svelte": "^7.2.2",
+		"svelte": "^5.0.0",
+		"typescript": "^5.3.2",
+		"vite": "^5.0.11"
+	},
+	"license": "MIT"
+}

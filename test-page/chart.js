@@ -95,11 +95,11 @@
 
 
         import {StackedBarChart} from '../dist-js/components.es.js';
-      
+        // import {StackedBarChart} from '../dist/index.js';
+        // import {StackedBarChart} from '../src/lib/charts/StackedBarChart.svelte';
+        console.log(StackedBarChart)
+        console.log(data,config)
+
         const chart = new StackedBarChart({
-          target: document.body,
-          props: {
-            data: data,
-            config: config
-          }
+          target: document.getElementById('chart-container'),
         });
